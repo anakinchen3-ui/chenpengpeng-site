@@ -107,9 +107,9 @@ export default function ClientMap() {
             <div className="h-px w-12 bg-gradient-to-l from-transparent to-primary-400"></div>
           </div>
 
-          {/* 第一行 - 3个 */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-5 max-w-4xl mx-auto">
-            {featuredClients.slice(0, 3).map((client) => (
+          {/* 第一行 - 4个 */
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mb-5">
+            {featuredClients.slice(0, 4).map((client) => (
               <button
                 key={client.name}
                 onClick={() => setSelectedClient(client)}
@@ -150,7 +150,7 @@ export default function ClientMap() {
 
           {/* 第二行 - 4个 */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
-            {featuredClients.slice(3).map((client) => (
+            {featuredClients.slice(4).map((client) => (
               <button
                 key={client.name}
                 onClick={() => setSelectedClient(client)}
