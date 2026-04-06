@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>项目组 Q1经营汇报</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --primary: #1e3a5f;
+            --primary-light: #2c5282;
+            --success: #059669;
+            --warning: #d97706;
+            --danger: #dc2626;
+            --info: #0891b2;
+            --bg: #f8fafc;
+            --card-bg: #ffffff;
+            --text: #1e293b;
+            --text-light: #64748b;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Microsoft YaHei', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 24px;
+        }
+
+        /* Header */
+        .header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+            color: white;
+            padding: 36px 40px;
+            border-radius: 12px;
+            margin-bottom: 24px;
+            position: relative;
+            box-shadow: 0 4px 20px rgba(30, 58, 95, 0.25);
+        }
+
+        .header-logo {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            height: 48px;
+            width: auto;
+            background: white;
+            padding: 4px 10px;
+            border-radius: 6px;
+        }
+
+        .header h1 {
+            font-size: 1.9em;
+            font-weight: 600;
+            margin-bottom: 8px;
+            letter-spacing: -0.5px;
+        }
+
+        .header .subtitle {
+            opacity: 0.85;
+            font-size: 1.05em;
+            font-weight: 400;
+        }
+
+        /* Section */
+        .section {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 28px;
+            margin-bottom: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.08);
+            border: 1px solid #e2e8f0;
+        }
+
+        .section-title {
+            font-size: 1.2em;
+            font-weight: 600;
+            color: var(--primary);
+            margin-bottom: 20px;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #e2e8f0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Metrics Grid */
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .metric-card {
+            background: #f8fafc;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            border: 1px solid #e2e8f0;
+            transition: all 0.2s;
+        }
+
+        .metric-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+        }
+
+        .metric-card.highlight {
+            background: linear-gradient(135deg, #ecfdf5 0%, #ffffff 100%);
+            border-color: #a7f3d0;
+        }
+
+        .metric-card.warning {
+            background: linear-gradient(135deg, #fffbeb 0%, #ffffff 100%);
+            border-color: #fcd34d;
+        }
+
+        .metric-label {
+            font-size: 0.8em;
+            color: var(--text-light);
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .metric-value {
+            font-size: 1.7em;
+            font-weight: 700;
+            color: var(--primary);
+            line-height: 1.2;
+        }
+
+        .metric-card.highlight .metric-value {
+            color: var(--success);
+        }
+
+        .metric-card.warning .metric-value {
+            color: var(--warning);
+        }
+
+        .metric-note {
+            font-size: 0.8em;
+            color: var(--success);
+            margin-top: 8px;
+            font-weight: 500;
+        }
+
+        .metric-card.warning .metric-note {
+            color: var(--warning);
+        }
+
+        /* KPI Tags */
+        .kpi-row {
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+        }
+
+        .kpi-tag {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 16px;
+            background: #f1f5f9;
+            border-radius: 8px;
+            border-left: 3px solid #cbd5e1;
+        }
+
+        .kpi-tag .label {
+            font-size: 0.8em;
+            color: var(--text-light);
+        }
+
+        .kpi-tag .value {
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+
+        .kpi-tag.success {
+            border-left-color: var(--success);
+            background: #ecfdf5;
+        }
+
+        .kpi-tag.warning {
+            border-left-color: var(--warning);
+            background: #fffbeb;
+        }
+
+        .kpi-tag.danger {
+            border-left-color: var(--danger);
+            background: #fef2f2;
+        }
+
+        /* Two Column Layout */
+        .two-columns {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .column {
+            padding: 24px;
+            border-radius: 10px;
+        }
+
+        .column.success {
+            background: #f0fdf4;
+            border: 1px solid #bbf7d0;
+        }
+
+        .column.danger {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+        }
+
+        .column-title {
+            font-size: 1.05em;
+            font-weight: 600;
+            margin-bottom: 16px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(0,0,0,0.08);
+        }
+
+        .column.success .column-title { color: var(--success); }
+        .column.danger .column-title { color: var(--danger); }
+
+        .point-list {
+            list-style: none;
+        }
+
+        .point-list li {
+            padding: 12px 0;
+            border-bottom: 1px dashed #e2e8f0;
+            font-size: 0.92em;
+            line-height: 1.7;
+        }
+
+        .point-list li:last-child {
+            border-bottom: none;
+        }
+
+        .point-list li strong {
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        /* Target Breakdown */
+        .target-blocks {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 24px;
+        }
+
+        .target-block {
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            color: white;
+        }
+
+        .target-block.blue { background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%); }
+        .target-block.cyan { background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%); }
+        .target-block.green { background: linear-gradient(135deg, #10b981 0%, #059669 100%); }
+        .target-block.orange { background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%); }
+
+        .target-block .amount {
+            font-size: 1.6em;
+            font-weight: 700;
+            margin-bottom: 6px;
+        }
+
+        .target-block .label {
+            font-size: 0.8em;
+            opacity: 0.95;
+            line-height: 1.4;
+        }
+
+        /* Focus Areas */
+        .focus-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px;
+        }
+
+        .focus-card {
+            padding: 20px;
+            border-radius: 10px;
+            border-left: 4px solid;
+            background: #f8fafc;
+        }
+
+        .focus-card.green {
+            border-left-color: var(--success);
+            background: #f0fdf4;
+        }
+
+        .focus-card.blue {
+            border-left-color: #3b82f6;
+            background: #eff6ff;
+        }
+
+        .focus-card.orange {
+            border-left-color: var(--warning);
+            background: #fffbeb;
+        }
+
+        .focus-card .icon {
+            font-size: 1.4em;
+            margin-bottom: 8px;
+        }
+
+        .focus-card .title {
+            font-weight: 600;
+            margin-bottom: 6px;
+            font-size: 0.95em;
+        }
+
+        .focus-card .content {
+            font-size: 0.85em;
+            color: var(--text-light);
+            line-height: 1.6;
+        }
+
+        /* Renewal Section */
+        .renewal-summary {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px;
+            margin-bottom: 20px;
+        }
+
+        .summary-card {
+            padding: 16px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .summary-card.blue {
+            background: #eff6ff;
+            color: #1e40af;
+        }
+
+        .summary-card.green {
+            background: #f0fdf4;
+            color: #166534;
+        }
+
+        .summary-card.orange {
+            background: #fffbeb;
+            color: #92400e;
+        }
+
+        .summary-card.red {
+            background: #fef2f2;
+            color: #991b1b;
+        }
+
+        .summary-card .num {
+            font-size: 1.5em;
+            font-weight: 700;
+        }
+
+        .summary-card .text {
+            font-size: 0.8em;
+            margin-top: 4px;
+            opacity: 0.9;
+        }
+
+        /* Table */
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.88em;
+        }
+
+        .data-table th {
+            background: var(--primary);
+            color: white;
+            padding: 12px 10px;
+            text-align: left;
+            font-weight: 500;
+            font-size: 0.85em;
+        }
+
+        .data-table td {
+            padding: 10px;
+            border-bottom: 1px solid #e2e8f0;
+            vertical-align: middle;
+        }
+
+        .data-table tr:nth-child(even) {
+            background: #f8fafc;
+        }
+
+        .data-table tr:hover {
+            background: #f1f5f9;
+        }
+
+        .urgency {
+            display: inline-block;
+            padding: 3px 8px;
+            border-radius: 10px;
+            font-size: 0.75em;
+            font-weight: 500;
+        }
+
+        .urgency.high {
+            background: #fecaca;
+            color: #991b1b;
+        }
+
+        .urgency.medium {
+            background: #fde68a;
+            color: #92400e;
+        }
+
+        .amount-cell {
+            font-weight: 600;
+            color: var(--primary);
+        }
+
+        .highlight {
+            color: var(--danger);
+            font-weight: 600;
+        }
+
+        /* Timeline */
+        .timeline {
+            margin-top: 20px;
+            padding: 16px;
+            background: #f8fafc;
+            border-radius: 8px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .timeline-title {
+            font-weight: 600;
+            margin-bottom: 12px;
+            color: var(--text);
+            font-size: 0.95em;
+        }
+
+        .timeline-item {
+            display: flex;
+            gap: 16px;
+            padding: 10px 0;
+            border-bottom: 1px dashed #e2e8f0;
+            font-size: 0.9em;
+        }
+
+        .timeline-item:last-child {
+            border-bottom: none;
+        }
+
+        .timeline-badge {
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.8em;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .timeline-badge.red {
+            background: #fecaca;
+            color: #991b1b;
+        }
+
+        .timeline-badge.orange {
+            background: #fde68a;
+            color: #92400e;
+        }
+
+        /* Footer */
+        .footer {
+            text-align: center;
+            padding: 24px;
+            color: var(--text-light);
+            font-size: 0.85em;
+            border-top: 1px solid #e2e8f0;
+            margin-top: 20px;
+        }
+
+        .footer .confidential {
+            display: inline-block;
+            padding: 4px 12px;
+            background: #fef2f2;
+            color: var(--danger);
+            border-radius: 4px;
+            font-size: 0.8em;
+            margin-top: 8px;
+            border: 1px solid #fecaca;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .metrics-grid,
+            .target-blocks,
+            .focus-grid,
+            .renewal-summary {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .two-columns {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <div class="header">
+            <img src="../../客户复盘/magichome/3月复盘/WeChat6afaff500e958789e39dac434cd2e137.jpg" alt="公司Logo" class="header-logo">
+            <h1>📊 项目组 Q1经营汇报</h1>
+            <div class="subtitle">陈鹏项目组 | 2026年第一季度 | 汇报时间：2026年4月6日</div>
+        </div>
+
+        <!-- 核心经营指标 -->
+        <div class="section">
+            <div class="section-title">💰 核心经营指标</div>
+
+            <!-- 财务指标 -->
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <div class="metric-label">Q1毛利目标</div>
+                    <div class="metric-value">¥92万</div>
+                </div>
+                <div class="metric-card highlight">
+                    <div class="metric-label">Q1实际完成</div>
+                    <div class="metric-value">¥136.8万</div>
+                    <div class="metric-note">达成率148.6% ↑</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">服务费收入</div>
+                    <div class="metric-value">¥121.9万</div>
+                    <div class="metric-note">占比89%</div>
+                </div>
+                <div class="metric-card warning">
+                    <div class="metric-label">返点收入</div>
+                    <div class="metric-value">¥14.9万</div>
+                    <div class="metric-note" style="color: var(--warning);">占比11%</div>
+                </div>
+            </div>
+
+            <!-- 运营KPI -->
+            <div class="kpi-row">
+                <div class="kpi-tag">
+                    <span class="label">在服客户</span>
+                    <span class="value">16家</span>
+                </div>
+                <div class="kpi-tag" style="background: #dbeafe; border-left-color: #3b82f6;">
+                    <span class="label">Q2接入燕清组客户</span>
+                    <span class="value" style="color: #1e40af;">4家 🆕</span>
+                </div>
+                <div class="kpi-tag danger">
+                    <span class="label">流失客户</span>
+                    <span class="value">3家 🔴</span>
+                </div>
+                <div class="kpi-tag success">
+                    <span class="label">新增客户</span>
+                    <span class="value">3家 🟢</span>
+                </div>
+                <div class="kpi-tag warning">
+                    <span class="label">团队规模</span>
+                    <span class="value">6人→5人 ⚠️</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Q1经营结果概览 -->
+        <div class="section">
+            <div class="section-title">📈 Q1经营结果概览</div>
+            <div class="two-columns">
+                <div class="column success">
+                    <div class="column-title">✅ 关键成果</div>
+                    <ul class="point-list">
+                        <li><strong>超额完成毛利目标</strong><br>目标92万，实际136.8万，达成率148.6%，超额44.8万</li>
+                        <li><strong>服务费收入稳健</strong><br>121.9万服务费占毛利89%，业务基本盘扎实，日均服务费¥13,246</li>
+                        <li><strong>新客贡献突出</strong><br>Q1新签3家客户贡献毛利32.6万，占比23.8%</li>
+                        <li><strong>返点收益稳定</strong><br>返点收入14.9万，主要来自Criteo渠道（10%返点率）</li>
+                    </ul>
+                </div>
+                <div class="column danger">
+                    <div class="column-title">⚠️ 关键短板</div>
+                    <ul class="point-list">
+                        <li><strong>客户流失影响</strong><br>NEWORK、IMOO、JMGO 3家客户流失，损失毛利7万+，年损失预估28万</li>
+                        <li><strong>返点依赖单一渠道</strong><br>Google零返点政策下，$71.6万消费无返点，返点结构待优化</li>
+                        <li><strong>团队人员流失</strong><br>赵育鑫离职，团队从6人减至5人，需承接原30.3%业绩（41.5万）</li>
+                        <li><strong>客户结构风险</strong><br>无日均消耗≥$5000的A类大客户，客户整体起量较慢</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Q2目标拆解与资源需求 -->
+        <div class="section">
+            <div class="section-title">🎯 Q2目标拆解与资源需求（目标159.6万）</div>
+
+            <!-- 目标构成 -->
+            <div class="target-blocks">
+                <div class="target-block blue">
+                    <div class="amount">¥45.5万</div>
+                    <div class="label">现有客户服务费<br>（5家合同覆盖Q2）</div>
+                </div>
+                <div class="target-block green">
+                    <div class="amount">¥75.5万</div>
+                    <div class="label">续费客户预计<br>（10家需续签）</div>
+                </div>
+                <div class="target-block cyan">
+                    <div class="amount">¥14.8万</div>
+                    <div class="label">返点预估<br>（按Q1水平推算）</div>
+                </div>
+                <div class="target-block orange">
+                    <div class="amount">¥23.9万</div>
+                    <div class="label">缺口需填补<br>（占比15.0%）</div>
+                </div>
+            </div>
+
+            <!-- 三大关注点 -->
+            <div class="focus-grid">
+                <div class="focus-card green">
+                    <div class="icon">🔄</div>
+                    <div class="title">确保续费达成</div>
+                    <div class="content">10家客户Q2到期，涉及续费收入75.5万，目标续费率≥85%，重点关注舒耳美和PANASIA风险客户</div>
+                </div>
+                <div class="focus-card blue">
+                    <div class="icon">🎯</div>
+                    <div class="title">新客户开发</div>
+                    <div class="content">需填补23.9万缺口，参考Q1新客贡献32.6万，Q2需签约3-4家新客户即可达标</div>
+                </div>
+                <div class="focus-card orange">
+                    <div class="icon">⚠️</div>
+                    <div class="title">团队产能承压</div>
+                    <div class="content">5人团队承接原6人工作量，人均客户数将从11家增至13-14家，需优化效率或补充人手</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Q2续费客户跟进清单 -->
+        <div class="section">
+            <div class="section-title">📋 Q2续费客户跟进清单</div>
+
+            <!-- 概览卡片 -->
+            <div class="renewal-summary">
+                <div class="summary-card blue">
+                    <div class="num">10家</div>
+                    <div class="text">Q2到期客户</div>
+                </div>
+                <div class="summary-card green">
+                    <div class="num">¥75.5万</div>
+                    <div class="text">续费预计毛利</div>
+                </div>
+                <div class="summary-card red">
+                    <div class="num">3家</div>
+                    <div class="text">合同已到期🔴</div>
+                </div>
+                <div class="summary-card orange">
+                    <div class="num">2家</div>
+                    <div class="text">风险客户⚠️</div>
+                </div>
+            </div>
+
+            <!-- 客户列表 -->
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th style="width: 40px;">序号</th>
+                        <th>客户名称</th>
+                        <th style="width: 100px;">到期日期</th>
+                        <th style="width: 80px;">销售</th>
+                        <th style="width: 100px;">日均服务费</th>
+                        <th style="width: 100px;">续费预计</th>
+                        <th style="width: 80px;">状态</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>厦门同仟进国际贸易有限公司</td>
+                        <td>已到期</td>
+                        <td>Ada</td>
+                        <td class="amount-cell">¥1,408</td>
+                        <td class="amount-cell">¥12.8万</td>
+                        <td><span class="urgency high">🔴 紧急</span></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>HK EHOOME INTERNATIONAL</td>
+                        <td>3/18到期</td>
+                        <td>Ada</td>
+                        <td class="amount-cell">¥1,400</td>
+                        <td class="amount-cell">¥12.7万</td>
+                        <td><span class="urgency high">🔴 紧急</span></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>君牛智行深圳有限公司</td>
+                        <td>1/31到期</td>
+                        <td>黄顺芳</td>
+                        <td class="amount-cell">¥1,314</td>
+                        <td class="amount-cell">¥12.0万</td>
+                        <td><span class="urgency high">🔴 紧急</span></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>杭州睿盯科技有限公司</td>
+                        <td>3/31到期</td>
+                        <td>Lisa</td>
+                        <td class="amount-cell">¥801</td>
+                        <td class="amount-cell">¥7.3万</td>
+                        <td><span class="urgency high">🔴 紧急</span></td>
+                    </tr>
+                    <tr>
+                        <td>5</td>
+                        <td>广州申禾舞台灯光设备</td>
+                        <td>3/31到期</td>
+                        <td>张乐</td>
+                        <td class="amount-cell">¥671</td>
+                        <td class="amount-cell">¥6.1万</td>
+                        <td><span class="urgency high">🔴 紧急</span></td>
+                    </tr>
+                    <tr>
+                        <td>6</td>
+                        <td>深圳乐行天下科技有限公司</td>
+                        <td>5/8到期</td>
+                        <td>黄顺芳</td>
+                        <td class="amount-cell">¥1,355</td>
+                        <td class="amount-cell">¥7.2万</td>
+                        <td><span class="urgency medium">🟡 关注</span></td>
+                    </tr>
+                    <tr>
+                        <td>7</td>
+                        <td>NATUREIN LIMITED</td>
+                        <td>12/31到期</td>
+                        <td>章珈铭</td>
+                        <td class="amount-cell">¥761</td>
+                        <td class="amount-cell">¥6.9万</td>
+                        <td><span class="urgency high">🔴 紧急</span></td>
+                    </tr>
+                    <tr>
+                        <td>8</td>
+                        <td>舒耳美（张家港）高科技有限公司 <span class="highlight">⚠️</span></td>
+                        <td>4/26到期</td>
+                        <td>章珈铭</td>
+                        <td class="amount-cell">¥756</td>
+                        <td class="amount-cell">¥4.9万</td>
+                        <td><span class="urgency high">🔴 风险</span></td>
+                    </tr>
+                    <tr>
+                        <td>9</td>
+                        <td>歐賽特電子有限公司</td>
+                        <td>5/19到期</td>
+                        <td>黄顺芳</td>
+                        <td class="amount-cell">¥757</td>
+                        <td class="amount-cell">¥3.2万</td>
+                        <td><span class="urgency medium">🟡 关注</span></td>
+                    </tr>
+                    <tr>
+                        <td>10</td>
+                        <td>JA-VIE-MY SUGARCOAT, INC.</td>
+                        <td>未明确</td>
+                        <td>Lisa</td>
+                        <td class="amount-cell">¥259</td>
+                        <td class="amount-cell">¥2.4万</td>
+                        <td><span class="urgency medium">🟡 关注</span></td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <!-- 跟进节奏 -->
+            <div class="timeline">
+                <div class="timeline-title">📅 跟进节奏提醒</div>
+                <div class="timeline-item">
+                    <span class="timeline-badge red">🔴 立即行动 5家</span>
+                    <span>同仟进、EHOOME、君牛智行、睿盯、申禾 —— <strong>合同已到期或3月底到期，本周内完成续签</strong></span>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-badge red">🔴 4月重点 2家</span>
+                    <span>乐行天下（5/8到期）、舒耳美（4/26到期，风险客户）—— <strong>4月中旬前启动续费谈判</strong></span>
+                </div>
+                <div class="timeline-item">
+                    <span class="timeline-badge orange">🟡 5月跟进 3家</span>
+                    <span>歐賽特（5/19到期）、NATUREIN、JA-VIE —— <strong>5月初启动续费沟通</strong></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <div>陈鹏项目组 | 2026年Q1经营汇报 | 数据来源：项目运营毛利跟进总表-2026Q1</div>
+            <div class="confidential">⚠️ 机密文件</div>
+        </div>
+    </div>
+</body>
+</html>

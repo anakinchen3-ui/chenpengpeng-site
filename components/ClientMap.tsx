@@ -107,7 +107,7 @@ export default function ClientMap() {
             <div className="h-px w-12 bg-gradient-to-l from-transparent to-primary-400"></div>
           </div>
 
-          {/* 第一行 - 4个 */
+          {/* 第一行 - 4个 */}
           <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mb-5">
             {featuredClients.slice(0, 4).map((client) => (
               <button

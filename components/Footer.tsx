@@ -1,12 +1,14 @@
 import Link from 'next/link'
-import { Mail, Phone, MapPin } from 'lucide-react'
+import { Mail, Phone, MapPin, FileText } from 'lucide-react'
+import Logo from '@/components/Logo'
 
 const footerLinks = [
   {
     title: '导航',
     links: [
       { label: '首页', href: '/' },
-      { label: '关于我', href: '/about' }
+      { label: '关于我', href: '/about' },
+      { label: '团队复盘', href: '/reports' }
     ]
   },
   {
@@ -26,13 +28,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 bg-primary-500 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold">陈</span>
-              </div>
-              <div>
-                <span className="font-bold text-white text-lg">陈鹏</span>
-                <span className="text-xs text-slate-400 block">Peng Chen</span>
-              </div>
+              <Logo size="md" showText={true} />
             </Link>
             <p className="text-slate-400 text-sm leading-relaxed mb-4">
               资深跨境品牌独立站操盘手，4年专注高客单价品类出海，

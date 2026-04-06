@@ -2,11 +2,13 @@
 
 import Link from 'next/link'
 import { useState } from 'react'
-import { Menu, X, Home, User, Mail } from 'lucide-react'
+import { Menu, X, Home, User, Mail, FileText } from 'lucide-react'
+import Logo from '@/components/Logo'
 
 const navItems = [
   { href: '/', label: '首页', icon: Home },
-  { href: '/about', label: '关于我', icon: User }
+  { href: '/about', label: '关于我', icon: User },
+  { href: '/reports', label: '团队复盘', icon: FileText }
 ]
 
 export default function Header() {
@@ -17,14 +19,8 @@ export default function Header() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 bg-primary-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">陈</span>
-            </div>
-            <div className="hidden sm:block">
-              <span className="font-bold text-slate-800">陈鹏</span>
-              <span className="text-xs text-slate-500 ml-1">Peng Chen</span>
-            </div>
+          <Link href="/">
+            <Logo size="sm" showText={true} />
           </Link>
 
           {/* Desktop Navigation */}
