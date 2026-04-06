@@ -13,62 +13,62 @@ interface Client {
 
 const clients: Client[] = [
   // 储能 - 重点客户 mango
-  { name: 'Mango', category: '储能', logo: '/clients/储能-mango.avif', isFeatured: true, description: '户外储能品牌，管理年度预算$2M+' },
-  { name: 'Vtoman', category: '储能', logo: '/clients/储能-vtoman.avif' },
+  { name: 'Mango', category: '储能', logo: '/clients/储能-mango.png', isFeatured: true, description: '户外储能品牌，管理年度预算$2M+' },
+  { name: 'Vtoman', category: '储能', logo: '/clients/储能-vtoman.png' },
 
   // 家居 - 重点客户 chita
   { name: 'Chita', category: '家居', logo: '/clients/家居-chita.png', isFeatured: true, description: '户外家居独立站，月销$100W+' },
   { name: 'Magichome', category: '家居', logo: '/clients/家居-magichome.png', isFeatured: true, description: '家居品牌，从0到1搭建独立站' },
   { name: 'WJS', category: '家居', logo: '/clients/家居-wjs.png' },
-  { name: 'Belffin', category: '家居', logo: '/clients/家居-belffin.avif' },
+  { name: 'Belffin', category: '家居', logo: '/clients/家居-belffin.png' },
 
   // 户外家居 - 重点客户 domi
-  { name: 'Domi', category: '户外家居', logo: '/clients/户外家居-domi.avif', isFeatured: true, description: '户外家具品牌，欧洲市场占比40%' },
-  { name: 'Kozyard', category: '户外家居', logo: '/clients/户外家居-kozyard.avif' },
+  { name: 'Domi', category: '户外家居', logo: '/clients/户外家居-domi.png', isFeatured: true, description: '户外家具品牌，欧洲市场占比40%' },
+  { name: 'Kozyard', category: '户外家居', logo: '/clients/户外家居-kozyard.png' },
 
   // 户外出行 - 重点客户 inmotion, kingbull
-  { name: 'Inmotion', category: '户外出行', logo: '/clients/户外出行-inmotion.avif', isFeatured: true, description: '电动滑板车品牌，Google Ads账户重构' },
-  { name: 'Kingbull', category: '户外出行', logo: '/clients/户外出行-kingbull.avif', isFeatured: true, description: 'E-bike品牌，半年10倍增长' },
-  { name: 'Gotrax', category: '户外出行', logo: '/clients/户外出行-gotrax.avif' },
-  { name: 'Navee', category: '户外出行', logo: '/clients/户外出行-navee.avif' },
-  { name: 'Tezus', category: '户外出行', logo: '/clients/户外出行-tezus.webp' },
-  { name: 'Velotric', category: '户外出行', logo: '/clients/户外出行-velotric.webp' },
-  { name: 'Valowave', category: '户外出行', logo: '/clients/户外出行-valowave' },
+  { name: 'Inmotion', category: '户外出行', logo: '/clients/户外出行-inmotion.png', isFeatured: true, description: '电动滑板车品牌，Google Ads账户重构' },
+  { name: 'Kingbull', category: '户外出行', logo: '/clients/户外出行-kingbull.png', isFeatured: true, description: 'E-bike品牌，半年10倍增长' },
+  { name: 'Gotrax', category: '户外出行', logo: '/clients/户外出行-gotrax.png' },
+  { name: 'Navee', category: '户外出行', logo: '/clients/户外出行-navee.png' },
+  { name: 'Tezus', category: '户外出行', logo: '/clients/户外出行-tezus.png' },
+  { name: 'Velotric', category: '户外出行', logo: '/clients/户外出行-velotric.png' },
+  { name: 'Valowave', category: '户外出行', logo: '/clients/户外出行-valowave.png' },
 
   // 灯光 - 重点客户 shehds
-  { name: 'Shehds', category: '灯光', logo: '/clients/灯光-shehds.avif', isFeatured: true, description: '舞台灯光品牌，B2B独立站运营' },
+  { name: 'Shehds', category: '灯光', logo: '/clients/灯光-shehds.png', isFeatured: true, description: '舞台灯光品牌，B2B独立站运营' },
 
   // 科技电子 - 重点客户 jmgo
-  { name: 'JMGO', category: '科技电子', logo: '/clients/科技电子-jmgo.webp', isFeatured: true, description: '智能投影仪，新品全案营销' },
+  { name: 'JMGO', category: '科技电子', logo: '/clients/科技电子-jmgo.png', isFeatured: true, description: '智能投影仪，新品全案营销' },
   { name: 'AWOL', category: '科技电子', logo: '/clients/科技电子-awol.png' },
-  { name: 'LaserPecker', category: '科技电子', logo: '/clients/科技电子-laserpecker.avif' },
-  { name: 'Vividstorm', category: '科技', logo: '/clients/科技-vividstorm.avif' },
+  { name: 'LaserPecker', category: '科技电子', logo: '/clients/科技电子-laserpecker.png' },
+  { name: 'Vividstorm', category: '科技', logo: '/clients/科技-vividstorm.png' },
 
   // 服饰鞋履
-  { name: 'Ancosti', category: '服饰鞋履', logo: '/clients/服饰鞋履-ancosti.webp' },
+  { name: 'Ancosti', category: '服饰鞋履', logo: '/clients/服饰鞋履-ancosti.png' },
   { name: 'Redtop', category: '服饰鞋履', logo: '/clients/服饰鞋履-redtop.svg' },
 
   // 小家电
-  { name: 'Euhomy', category: '小家电', logo: '/clients/小家电-euhomy.avif' },
+  { name: 'Euhomy', category: '小家电', logo: '/clients/小家电-euhomy.png' },
 
   // 小工具
-  { name: 'Hoto', category: '小工具', logo: '/clients/小工具-hoto.avif' },
+  { name: 'Hoto', category: '小工具', logo: '/clients/小工具-hoto.png' },
 
   // 工具
-  { name: 'Workpro', category: '工具', logo: '/clients/工具-workpro.avif' },
+  { name: 'Workpro', category: '工具', logo: '/clients/工具-workpro.png' },
 
   // 安防
-  { name: 'Aosulife', category: '安防', logo: '/clients/安防-aosulife.webp' },
-  { name: 'Tapo', category: '安防', logo: '/clients/安防-tapo.webp' },
+  { name: 'Aosulife', category: '安防', logo: '/clients/安防-aosulife.png' },
+  { name: 'Tapo', category: '安防', logo: '/clients/安防-tapo.png' },
 
   // 假发
-  { name: 'Lavivid', category: '假发', logo: '/clients/假发-lavivid.avif' },
+  { name: 'Lavivid', category: '假发', logo: '/clients/假发-lavivid.png' },
 
   // 儿童手表
   { name: 'imoo', category: '儿童手表', logo: '/clients/儿童手表-imoo.png' },
 
   // 油画
-  { name: 'Mesonart', category: '油画', logo: '/clients/油画-mesonart.avif' },
+  { name: 'Mesonart', category: '油画', logo: '/clients/油画-mesonart.png' },
 ]
 
 const categories = Array.from(new Set(clients.map(c => c.category)))
