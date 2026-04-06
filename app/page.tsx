@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { ArrowRight, Briefcase, TrendingUp, Award, Globe, Users, BarChart3 } from 'lucide-react'
+import ClientMap from '@/components/ClientMap'
 
 const highlights = [
   {
@@ -207,6 +208,9 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* Client Map Section */}
+      <ClientMap />
 
       {/* CTA Section */}
       <section className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
