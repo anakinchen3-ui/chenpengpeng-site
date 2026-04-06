@@ -107,9 +107,9 @@ export default function ClientMap() {
             <div className="h-px w-12 bg-gradient-to-l from-transparent to-primary-400"></div>
           </div>
 
-          {/* 第一行 - 4个 */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mb-5">
-            {featuredClients.slice(0, 4).map((client) => (
+          {/* 第一行 - 3个 */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-5 max-w-4xl mx-auto">
+            {featuredClients.slice(0, 3).map((client) => (
               <button
                 key={client.name}
                 onClick={() => setSelectedClient(client)}
@@ -124,7 +124,7 @@ export default function ClientMap() {
                   深度
                 </div>
 
-                <div className="aspect-[4/3] relative flex items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100 rounded-xl overflow-hidden p-4 mb-3">
+                <div className="aspect-[4/3] relative flex items-center justify-center bg-gradient-to-br from-slate-200 to-slate-300 rounded-xl overflow-hidden p-4 mb-3">
                   <img
                     src={client.logo}
                     alt={client.name}
@@ -148,9 +148,9 @@ export default function ClientMap() {
             ))}
           </div>
 
-          {/* 第二行 - 3个，居中显示 */}
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-5 max-w-3xl mx-auto">
-            {featuredClients.slice(4).map((client) => (
+          {/* 第二行 - 4个 */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
+            {featuredClients.slice(3).map((client) => (
               <button
                 key={client.name}
                 onClick={() => setSelectedClient(client)}
@@ -165,7 +165,7 @@ export default function ClientMap() {
                   深度
                 </div>
 
-                <div className="aspect-[4/3] relative flex items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100 rounded-xl overflow-hidden p-4 mb-3">
+                <div className="aspect-[4/3] relative flex items-center justify-center bg-gradient-to-br from-slate-200 to-slate-300 rounded-xl overflow-hidden p-4 mb-3">
                   <img
                     src={client.logo}
                     alt={client.name}
@@ -229,7 +229,7 @@ export default function ClientMap() {
                   : 'border-slate-200 hover:border-primary-200'
               }`}
             >
-              <div className="aspect-square relative flex items-center justify-center bg-slate-100 rounded-lg overflow-hidden p-2">
+              <div className="aspect-square relative flex items-center justify-center bg-gradient-to-br from-slate-200 to-slate-300 rounded-lg overflow-hidden p-2">
                 <img
                   src={client.logo}
                   alt={client.name}
@@ -283,7 +283,7 @@ export default function ClientMap() {
             </button>
 
             <div className="flex flex-col items-center">
-              <div className="w-32 h-32 relative flex items-center justify-center bg-slate-100 rounded-xl p-4 mb-4">
+              <div className="w-32 h-32 relative flex items-center justify-center bg-gradient-to-br from-slate-200 to-slate-300 rounded-xl p-4 mb-4">
                 <img
                   src={selectedClient.logo}
                   alt={selectedClient.name}
