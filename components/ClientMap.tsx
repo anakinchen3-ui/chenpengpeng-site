@@ -107,7 +107,7 @@ export default function ClientMap() {
                 onClick={() => setSelectedClient(client)}
                 className="group relative bg-white rounded-xl p-4 border border-slate-200 hover:border-primary-300 hover:shadow-lg transition-all duration-300"
               >
-                <div className="aspect-square relative flex items-center justify-center overflow-hidden">
+                <div className="aspect-square relative flex items-center justify-center bg-slate-100 rounded-lg overflow-hidden p-2">
                   <img
                     src={client.logo}
                     alt={client.name}
@@ -162,7 +162,7 @@ export default function ClientMap() {
                   : 'border-slate-200 hover:border-primary-200'
               }`}
             >
-              <div className="aspect-square relative flex items-center justify-center overflow-hidden">
+              <div className="aspect-square relative flex items-center justify-center bg-slate-100 rounded-lg overflow-hidden p-2">
                 <img
                   src={client.logo}
                   alt={client.name}
@@ -216,7 +216,7 @@ export default function ClientMap() {
             </button>
 
             <div className="flex flex-col items-center">
-              <div className="w-32 h-32 relative flex items-center justify-center bg-slate-50 rounded-xl p-4 mb-4">
+              <div className="w-32 h-32 relative flex items-center justify-center bg-slate-100 rounded-xl p-4 mb-4">
                 <img
                   src={selectedClient.logo}
                   alt={selectedClient.name}
