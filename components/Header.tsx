@@ -2,14 +2,11 @@
 
 import Link from 'next/link'
 import { useState } from 'react'
-import { Menu, X, Home, Briefcase, FileText, Wrench, User } from 'lucide-react'
+import { Menu, X, Home, User, Mail } from 'lucide-react'
 
 const navItems = [
   { href: '/', label: '首页', icon: Home },
-  { href: '/portfolio', label: '作品集', icon: Briefcase },
-  { href: '/blog', label: '博客', icon: FileText },
-  { href: '/tools', label: '工具', icon: Wrench },
-  { href: '/about', label: '关于', icon: User }
+  { href: '/about', label: '关于我', icon: User }
 ]
 
 export default function Header() {
@@ -22,9 +19,12 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2">
             <div className="w-8 h-8 bg-primary-600 rounded-lg flex items-center justify-center">
-              <span className="text-white font-bold text-sm">Y</span>
+              <span className="text-white font-bold text-sm">陈</span>
             </div>
-            <span className="font-bold text-slate-800">你的名字</span>
+            <div className="hidden sm:block">
+              <span className="font-bold text-slate-800">陈鹏</span>
+              <span className="text-xs text-slate-500 ml-1">Peng Chen</span>
+            </div>
           </Link>
 
           {/* Desktop Navigation */}
@@ -42,6 +42,13 @@ export default function Header() {
                 </Link>
               )
             })}
+            <a
+              href="mailto:anakinchen3@gmail.com"
+              className="flex items-center gap-1.5 px-4 py-2 text-sm font-medium text-white bg-primary-600 hover:bg-primary-700 rounded-lg transition-colors ml-2"
+            >
+              <Mail className="w-4 h-4" />
+              联系我
+            </a>
           </nav>
 
           {/* Mobile Menu Button */}
@@ -72,6 +79,14 @@ export default function Header() {
                 </Link>
               )
             })}
+            <a
+              href="mailto:anakinchen3@gmail.com"
+              className="flex items-center gap-3 px-3 py-2.5 text-primary-600 hover:bg-primary-50 rounded-lg transition-colors"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              <Mail className="w-5 h-5" />
+              联系我
+            </a>
           </nav>
         </div>
       )}

@@ -1,29 +1,19 @@
 import Link from 'next/link'
-import { Github, Twitter, Mail, Linkedin } from 'lucide-react'
-
-const socialLinks = [
-  { href: 'https://github.com', icon: Github, label: 'GitHub' },
-  { href: 'https://twitter.com', icon: Twitter, label: 'Twitter' },
-  { href: 'https://linkedin.com', icon: Linkedin, label: 'LinkedIn' },
-  { href: 'mailto:your.email@example.com', icon: Mail, label: 'Email' }
-]
+import { Mail, Phone, MapPin } from 'lucide-react'
 
 const footerLinks = [
   {
     title: '导航',
     links: [
       { label: '首页', href: '/' },
-      { label: '作品集', href: '/portfolio' },
-      { label: '博客', href: '/blog' },
-      { label: '工具', href: '/tools' }
+      { label: '关于我', href: '/about' }
     ]
   },
   {
-    title: '资源',
+    title: '联系方式',
     links: [
-      { label: '关于我', href: '/about' },
-      { label: '简历下载', href: '/resume.pdf' },
-      { label: 'RSS订阅', href: '/rss.xml' }
+      { label: 'anakinchen3@gmail.com', href: 'mailto:anakinchen3@gmail.com' },
+      { label: '13276675516', href: 'tel:13276675516' }
     ]
   }
 ]
@@ -32,36 +22,35 @@ export default function Footer() {
   return (
     <footer className="bg-slate-900 text-slate-300">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {/* Brand */}
-          <div className="md:col-span-2">
+          <div className="md:col-span-1">
             <Link href="/" className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 bg-primary-500 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">Y</span>
+              <div className="w-10 h-10 bg-primary-500 rounded-lg flex items-center justify-center">
+                <span className="text-white font-bold">陈</span>
               </div>
-              <span className="font-bold text-white">你的名字</span>
+              <div>
+                <span className="font-bold text-white text-lg">陈鹏</span>
+                <span className="text-xs text-slate-400 block">Peng Chen</span>
+              </div>
             </Link>
-            <p className="text-slate-400 text-sm leading-relaxed max-w-sm">
-              一名热爱技术与产品的创作者，致力于构建优雅的用户体验和实用的工具。
-              欢迎交流技术与创意！
+            <p className="text-slate-400 text-sm leading-relaxed mb-4">
+              资深跨境品牌独立站操盘手，4年专注高客单价品类出海，
+              致力于驱动品牌在海外市场的可持续增长。
             </p>
-            {/* Social Links */}
-            <div className="flex gap-3 mt-4">
-              {socialLinks.map((social) => {
-                const Icon = social.icon
-                return (
-                  <a
-                    key={social.label}
-                    href={social.href}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="w-10 h-10 bg-slate-800 hover:bg-primary-600 rounded-lg flex items-center justify-center transition-colors"
-                    aria-label={social.label}
-                  >
-                    <Icon className="w-5 h-5" />
-                  </a>
-                )
-              })}
+            <div className="space-y-2 text-sm">
+              <a href="mailto:anakinchen3@gmail.com" className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
+                <Mail className="w-4 h-4" />
+                anakinchen3@gmail.com
+              </a>
+              <a href="tel:13276675516" className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors">
+                <Phone className="w-4 h-4" />
+                13276675516
+              </a>
+              <div className="flex items-center gap-2 text-slate-400">
+                <MapPin className="w-4 h-4" />
+                深圳
+              </div>
             </div>
           </div>
 
@@ -88,10 +77,10 @@ export default function Footer() {
         {/* Bottom */}
         <div className="border-t border-slate-800 mt-10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-sm text-slate-500">
-            © {new Date().getFullYear()} 你的名字. All rights reserved.
+            © {new Date().getFullYear()} 陈鹏 Peng Chen. All rights reserved.
           </p>
           <p className="text-sm text-slate-500">
-            Built with Next.js & Tailwind CSS
+            跨境品牌独立站操盘手
           </p>
         </div>
       </div>
