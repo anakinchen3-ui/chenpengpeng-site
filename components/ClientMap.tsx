@@ -96,28 +96,95 @@ export default function ClientMap() {
 
         {/* Featured Clients - Large Cards */}
         <div className="mb-16">
-          <h3 className="text-lg font-semibold text-slate-900 mb-6 flex items-center gap-2">
-            <span className="w-1 h-6 bg-primary-600 rounded-full"></span>
-            重点合作品牌
-          </h3>
-          <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-4">
-            {featuredClients.map((client) => (
+          <div className="flex items-center justify-center gap-3 mb-8">
+            <div className="h-px w-12 bg-gradient-to-r from-transparent to-primary-400"></div>
+            <h3 className="text-xl font-bold text-slate-900 flex items-center gap-2">
+              <span className="px-3 py-1 bg-gradient-to-r from-primary-600 to-violet-600 text-white text-sm rounded-full">
+                深度合作
+              </span>
+              重点合作品牌
+            </h3>
+            <div className="h-px w-12 bg-gradient-to-l from-transparent to-primary-400"></div>
+          </div>
+
+          {/* 第一行 - 4个 */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-5 mb-5">
+            {featuredClients.slice(0, 4).map((client) => (
               <button
                 key={client.name}
                 onClick={() => setSelectedClient(client)}
-                className="group relative bg-white rounded-xl p-4 border border-slate-200 hover:border-primary-300 hover:shadow-lg transition-all duration-300"
+                className="group relative bg-white rounded-2xl p-5 border-2 border-primary-200 hover:border-primary-500 hover:shadow-xl hover:shadow-primary-100 transition-all duration-300 overflow-hidden"
               >
-                <div className="aspect-square relative flex items-center justify-center bg-slate-100 rounded-lg overflow-hidden p-2">
+                {/* 顶部渐变条 */}
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary-500 to-violet-500"></div>
+
+                {/* 深度合作标识 */}
+                <div className="absolute top-3 right-3 px-2 py-0.5 bg-amber-100 text-amber-700 text-xs font-medium rounded-full flex items-center gap-1">
+                  <span className="w-1.5 h-1.5 bg-amber-500 rounded-full"></span>
+                  深度
+                </div>
+
+                <div className="aspect-[4/3] relative flex items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100 rounded-xl overflow-hidden p-4 mb-3">
                   <img
                     src={client.logo}
                     alt={client.name}
                     className="max-w-full max-h-full object-contain group-hover:scale-110 transition-transform duration-300"
                   />
                 </div>
-                <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                  <ZoomIn className="w-4 h-4 text-primary-600" />
+
+                <div className="text-center">
+                  <p className="font-bold text-slate-800 text-base mb-1">{client.name}</p>
+                  <p className="text-xs text-slate-500">{client.category}</p>
                 </div>
-                <p className="text-center text-sm font-medium text-slate-700 mt-2">{client.name}</p>
+
+                {/* Hover 查看更多 */}
+                <div className="absolute inset-0 bg-primary-600/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <span className="text-white font-medium flex items-center gap-2">
+                    查看详情
+                    <ZoomIn className="w-4 h-4" />
+                  </span>
+                </div>
+              </button>
+            ))}
+          </div>
+
+          {/* 第二行 - 3个，居中显示 */}
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-5 max-w-3xl mx-auto">
+            {featuredClients.slice(4).map((client) => (
+              <button
+                key={client.name}
+                onClick={() => setSelectedClient(client)}
+                className="group relative bg-white rounded-2xl p-5 border-2 border-primary-200 hover:border-primary-500 hover:shadow-xl hover:shadow-primary-100 transition-all duration-300 overflow-hidden"
+              >
+                {/* 顶部渐变条 */}
+                <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary-500 to-violet-500"></div>
+
+                {/* 深度合作标识 */}
+                <div className="absolute top-3 right-3 px-2 py-0.5 bg-amber-100 text-amber-700 text-xs font-medium rounded-full flex items-center gap-1">
+                  <span className="w-1.5 h-1.5 bg-amber-500 rounded-full"></span>
+                  深度
+                </div>
+
+                <div className="aspect-[4/3] relative flex items-center justify-center bg-gradient-to-br from-slate-50 to-slate-100 rounded-xl overflow-hidden p-4 mb-3">
+                  <img
+                    src={client.logo}
+                    alt={client.name}
+                    className="max-w-full max-h-full object-contain group-hover:scale-110 transition-transform duration-300"
+                  />
+                </div>
+
+                <div className="text-center">
+                  <p className="font-bold text-slate-800 text-base mb-1">{client.name}</p>
+                  <p className="text-xs text-slate-500">{client.category}</p>
+                </div>
+
+                {/* Hover 查看更多 */}
+                <div className="absolute inset-0 bg-primary-600/90 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                  <span className="text-white font-medium flex items-center gap-2">
+                    查看详情
+                    <ZoomIn className="w-4 h-4" />
+                  </span>
+                </div>
               </button>
             ))}
           </div>
